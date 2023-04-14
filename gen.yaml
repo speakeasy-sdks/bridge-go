@@ -6,8 +6,8 @@ management:
   generationVersion: 2.18.0
 generation:
   telemetryEnabled: false
-  sdkClassName: SDK
-  sdkFlattening: false
+  sdkClassName: bride
+  sdkFlattening: true
   singleTagPerOp: false
 go:
   version: 1.0.0
