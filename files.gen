@@ -1,5 +1,5 @@
 paymentlinks.go
-sdk.go
+bride.go
 go.mod
 go.sum
 pkg/types/date.go

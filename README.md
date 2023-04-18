@@ -34,9 +34,9 @@ import (
 )
 
 func main() {
-    s := sdk.New(
-        sdk.WithSecurity(shared.Security{
-            ClientID: sdk.String("YOUR_API_KEY_HERE"),
+    s := bride.New(
+        bride.WithSecurity(shared.Security{
+            ClientID: bride.String("YOUR_API_KEY_HERE"),
         }),
     )
 
@@ -48,6 +48,45 @@ func main() {
         Country: "de",
         ExpiredDate: "2021-07-24T22:00:00.000Z",
         Transactions: []shared.Transaction{
+            shared.Transaction{
+                Amount: 120.98,
+                Beneficiary: &shared.Beneficiary{
+                    CompanyName: "Acme Inc.",
+                    FirstName: "John",
+                    Iban: "GB29 NWBK 6016 1331 9268 19",
+                    LastName: "Doe",
+                },
+                Currency: "EUR",
+                EndToEndID: "E2E_ID-1234",
+                ExecutionDate: "2021-07-24T22:00:00.000Z",
+                Label: "Refund 123456",
+            },
+            shared.Transaction{
+                Amount: 120.98,
+                Beneficiary: &shared.Beneficiary{
+                    CompanyName: "Acme Inc.",
+                    FirstName: "John",
+                    Iban: "GB29 NWBK 6016 1331 9268 19",
+                    LastName: "Doe",
+                },
+                Currency: "EUR",
+                EndToEndID: "E2E_ID-1234",
+                ExecutionDate: "2021-07-24T22:00:00.000Z",
+                Label: "Refund 123456",
+            },
+            shared.Transaction{
+                Amount: 120.98,
+                Beneficiary: &shared.Beneficiary{
+                    CompanyName: "Acme Inc.",
+                    FirstName: "John",
+                    Iban: "GB29 NWBK 6016 1331 9268 19",
+                    LastName: "Doe",
+                },
+                Currency: "EUR",
+                EndToEndID: "E2E_ID-1234",
+                ExecutionDate: "2021-07-24T22:00:00.000Z",
+                Label: "Refund 123456",
+            },
             shared.Transaction{
                 Amount: 120.98,
                 Beneficiary: &shared.Beneficiary{

@@ -11,9 +11,9 @@ import (
 )
 
 func main() {
-    s := sdk.New(
-        sdk.WithSecurity(shared.Security{
-            ClientID: sdk.String("YOUR_API_KEY_HERE"),
+    s := bride.New(
+        bride.WithSecurity(shared.Security{
+            ClientID: bride.String("YOUR_API_KEY_HERE"),
         }),
     )
 
