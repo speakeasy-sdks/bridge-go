@@ -20,6 +20,10 @@ const (
 	ListPaymentLinksStatusEnumRevoked   ListPaymentLinksStatusEnum = "REVOKED"
 )
 
+func (e ListPaymentLinksStatusEnum) ToPointer() *ListPaymentLinksStatusEnum {
+	return &e
+}
+
 func (e *ListPaymentLinksStatusEnum) UnmarshalJSON(data []byte) error {
 	var s string
 	if err := json.Unmarshal(data, &s); err != nil {
@@ -55,6 +59,8 @@ type ListPaymentLinksRequest struct {
 
 type ListPaymentLinksResponse struct {
 	ContentType string
+	// Invalid body content
+	InvalidBodyContent *shared.InvalidBodyContent
 	// OK
 	PaymentLinksResponse *shared.PaymentLinksResponse
 	StatusCode           int

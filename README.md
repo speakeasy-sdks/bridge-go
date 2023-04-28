@@ -25,12 +25,12 @@ go get github.com/speakeasy-sdks/bridge-go
 ```go
 package main
 
-import (
-    "context"
-    "log"
-    "github.com/speakeasy-sdks/bridge-go"
-    "github.com/speakeasy-sdks/bridge-go/pkg/models/shared"
-    "github.com/speakeasy-sdks/bridge-go/pkg/models/operations"
+import(
+	"context"
+	"log"
+	"github.com/speakeasy-sdks/bridge-go"
+	"github.com/speakeasy-sdks/bridge-go/pkg/models/shared"
+	"github.com/speakeasy-sdks/bridge-go/pkg/types"
 )
 
 func main() {
@@ -42,67 +42,67 @@ func main() {
 
     ctx := context.Background()    
     req := shared.PaymentLinkRequest{
-        BankID: 548814,
-        CallbackURL: "provident",
-        ClientReference: "ABCDE_FG-HI_12345",
-        Country: "de",
-        ExpiredDate: "2021-07-24T22:00:00.000Z",
+        BankID: bride.Int64(548814),
+        CallbackURL: bride.String("provident"),
+        ClientReference: bride.String("ABCDE_FG-HI_12345"),
+        Country: shared.PaymentLinkRequestCountryEnumDe.ToPointer(),
+        ExpiredDate: types.MustTimeFromString("2021-07-24T22:00:00.000Z"),
         Transactions: []shared.Transaction{
             shared.Transaction{
                 Amount: 120.98,
                 Beneficiary: &shared.Beneficiary{
-                    CompanyName: "Acme Inc.",
-                    FirstName: "John",
+                    CompanyName: bride.String("Acme Inc."),
+                    FirstName: bride.String("John"),
                     Iban: "GB29 NWBK 6016 1331 9268 19",
-                    LastName: "Doe",
+                    LastName: bride.String("Doe"),
                 },
                 Currency: "EUR",
-                EndToEndID: "E2E_ID-1234",
-                ExecutionDate: "2021-07-24T22:00:00.000Z",
+                EndToEndID: bride.String("E2E_ID-1234"),
+                ExecutionDate: types.MustTimeFromString("2021-07-24T22:00:00.000Z"),
                 Label: "Refund 123456",
             },
             shared.Transaction{
                 Amount: 120.98,
                 Beneficiary: &shared.Beneficiary{
-                    CompanyName: "Acme Inc.",
-                    FirstName: "John",
+                    CompanyName: bride.String("Acme Inc."),
+                    FirstName: bride.String("John"),
                     Iban: "GB29 NWBK 6016 1331 9268 19",
-                    LastName: "Doe",
+                    LastName: bride.String("Doe"),
                 },
                 Currency: "EUR",
-                EndToEndID: "E2E_ID-1234",
-                ExecutionDate: "2021-07-24T22:00:00.000Z",
+                EndToEndID: bride.String("E2E_ID-1234"),
+                ExecutionDate: types.MustTimeFromString("2021-07-24T22:00:00.000Z"),
                 Label: "Refund 123456",
             },
             shared.Transaction{
                 Amount: 120.98,
                 Beneficiary: &shared.Beneficiary{
-                    CompanyName: "Acme Inc.",
-                    FirstName: "John",
+                    CompanyName: bride.String("Acme Inc."),
+                    FirstName: bride.String("John"),
                     Iban: "GB29 NWBK 6016 1331 9268 19",
-                    LastName: "Doe",
+                    LastName: bride.String("Doe"),
                 },
                 Currency: "EUR",
-                EndToEndID: "E2E_ID-1234",
-                ExecutionDate: "2021-07-24T22:00:00.000Z",
+                EndToEndID: bride.String("E2E_ID-1234"),
+                ExecutionDate: types.MustTimeFromString("2021-07-24T22:00:00.000Z"),
                 Label: "Refund 123456",
             },
             shared.Transaction{
                 Amount: 120.98,
                 Beneficiary: &shared.Beneficiary{
-                    CompanyName: "Acme Inc.",
-                    FirstName: "John",
+                    CompanyName: bride.String("Acme Inc."),
+                    FirstName: bride.String("John"),
                     Iban: "GB29 NWBK 6016 1331 9268 19",
-                    LastName: "Doe",
+                    LastName: bride.String("Doe"),
                 },
                 Currency: "EUR",
-                EndToEndID: "E2E_ID-1234",
-                ExecutionDate: "2021-07-24T22:00:00.000Z",
+                EndToEndID: bride.String("E2E_ID-1234"),
+                ExecutionDate: types.MustTimeFromString("2021-07-24T22:00:00.000Z"),
                 Label: "Refund 123456",
             },
         },
         User: shared.User{
-            ExternalReference: "REF-USER-1234_AZ",
+            ExternalReference: bride.String("REF-USER-1234_AZ"),
             FirstName: "Thomas",
             LastName: "Pichet",
         },
@@ -124,12 +124,12 @@ func main() {
 ## Available Resources and Operations
 
 
-### PaymentLinks
+### [PaymentLinks](docs/paymentlinks/README.md)
 
-* `Create` - Create a payment link
-* `Get` - Retrieve payment link information by ID
-* `List` - Retrieve a list of payment links
-* `Revoke` - Revoke a payment link
+* [Create](docs/paymentlinks/README.md#create) - Create a payment link
+* [Get](docs/paymentlinks/README.md#get) - Retrieve payment link information by ID
+* [List](docs/paymentlinks/README.md#list) - Retrieve a list of payment links
+* [Revoke](docs/paymentlinks/README.md#revoke) - Revoke a payment link
 <!-- End SDK Available Operations -->
 
 ### Maturity

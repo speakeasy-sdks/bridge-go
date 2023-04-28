@@ -17,6 +17,10 @@ const (
 	PaymentLinkRequestCountryEnumGb PaymentLinkRequestCountryEnum = "gb"
 )
 
+func (e PaymentLinkRequestCountryEnum) ToPointer() *PaymentLinkRequestCountryEnum {
+	return &e
+}
+
 func (e *PaymentLinkRequestCountryEnum) UnmarshalJSON(data []byte) error {
 	var s string
 	if err := json.Unmarshal(data, &s); err != nil {

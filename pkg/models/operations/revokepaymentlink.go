@@ -3,6 +3,7 @@
 package operations
 
 import (
+	"github.com/speakeasy-sdks/bridge-go/pkg/models/shared"
 	"net/http"
 )
 
@@ -13,6 +14,8 @@ type RevokePaymentLinkRequest struct {
 
 type RevokePaymentLinkResponse struct {
 	ContentType string
-	StatusCode  int
-	RawResponse *http.Response
+	// Invalid body content
+	InvalidBodyContent *shared.InvalidBodyContent
+	StatusCode         int
+	RawResponse        *http.Response
 }

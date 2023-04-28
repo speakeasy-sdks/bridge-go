@@ -3,6 +3,7 @@
 package operations
 
 import (
+	"github.com/speakeasy-sdks/bridge-go/pkg/models/shared"
 	"net/http"
 )
 
@@ -14,8 +15,10 @@ type CreatePaymentLink200ApplicationJSON struct {
 
 type CreatePaymentLinkResponse struct {
 	ContentType string
-	StatusCode  int
-	RawResponse *http.Response
+	// Invalid body content
+	InvalidBodyContent *shared.InvalidBodyContent
+	StatusCode         int
+	RawResponse        *http.Response
 	// Successfully created a payment link
 	CreatePaymentLink200ApplicationJSONObject *CreatePaymentLink200ApplicationJSON
 }
