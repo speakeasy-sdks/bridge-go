@@ -14,6 +14,8 @@ type GetPaymentLinkRequest struct {
 
 type GetPaymentLinkResponse struct {
 	ContentType string
+	// Invalid body content
+	InvalidBodyContent *shared.InvalidBodyContent
 	// OK
 	PaymentLinkResponse *shared.PaymentLinkResponse
 	StatusCode          int

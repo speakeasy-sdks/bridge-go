@@ -83,6 +83,15 @@ func (s *paymentLinks) Create(ctx context.Context, request shared.PaymentLinkReq
 			res.CreatePaymentLink200ApplicationJSONObject = out
 		}
 	case httpRes.StatusCode == 400:
+		switch {
+		case utils.MatchContentType(contentType, `application/json`):
+			var out *shared.InvalidBodyContent
+			if err := utils.UnmarshalJsonFromResponseBody(httpRes.Body, &out); err != nil {
+				return nil, err
+			}
+
+			res.InvalidBodyContent = out
+		}
 	}
 
 	return res, nil
@@ -132,6 +141,15 @@ func (s *paymentLinks) Get(ctx context.Context, request operations.GetPaymentLin
 			res.PaymentLinkResponse = out
 		}
 	case httpRes.StatusCode == 400:
+		switch {
+		case utils.MatchContentType(contentType, `application/json`):
+			var out *shared.InvalidBodyContent
+			if err := utils.UnmarshalJsonFromResponseBody(httpRes.Body, &out); err != nil {
+				return nil, err
+			}
+
+			res.InvalidBodyContent = out
+		}
 	}
 
 	return res, nil
@@ -181,6 +199,15 @@ func (s *paymentLinks) List(ctx context.Context, request operations.ListPaymentL
 			res.PaymentLinksResponse = out
 		}
 	case httpRes.StatusCode == 400:
+		switch {
+		case utils.MatchContentType(contentType, `application/json`):
+			var out *shared.InvalidBodyContent
+			if err := utils.UnmarshalJsonFromResponseBody(httpRes.Body, &out); err != nil {
+				return nil, err
+			}
+
+			res.InvalidBodyContent = out
+		}
 	}
 
 	return res, nil
@@ -220,8 +247,16 @@ func (s *paymentLinks) Revoke(ctx context.Context, request operations.RevokePaym
 	}
 	switch {
 	case httpRes.StatusCode == 200:
-		fallthrough
 	case httpRes.StatusCode == 400:
+		switch {
+		case utils.MatchContentType(contentType, `application/json`):
+			var out *shared.InvalidBodyContent
+			if err := utils.UnmarshalJsonFromResponseBody(httpRes.Body, &out); err != nil {
+				return nil, err
+			}
+
+			res.InvalidBodyContent = out
+		}
 	}
 
 	return res, nil

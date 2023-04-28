@@ -3,6 +3,7 @@ bride.go
 go.mod
 go.sum
 pkg/types/date.go
+pkg/types/datetime.go
 pkg/utils/contenttype.go
 pkg/utils/form.go
 pkg/utils/headers.go
@@ -16,6 +17,7 @@ pkg/models/operations/createpaymentlink.go
 pkg/models/operations/getpaymentlink.go
 pkg/models/operations/listpaymentlinks.go
 pkg/models/operations/revokepaymentlink.go
+pkg/models/shared/invalidbodycontent.go
 pkg/models/shared/paymentlinkrequest.go
 pkg/models/shared/user.go
 pkg/models/shared/transaction.go
@@ -24,4 +26,6 @@ pkg/models/shared/paymentlinkresponse.go
 pkg/models/shared/paymentlinksresponse.go
 pkg/models/shared/pagination.go
 pkg/models/shared/security.go
+docs/bride/README.md
+docs/paymentlinks/README.md
 USAGE.md

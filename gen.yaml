@@ -1,14 +1,13 @@
 configVersion: 1.0.0
 management:
-  docChecksum: d4a358a0da54ef457be2f9de41a26908
+  docChecksum: 4e930a7a749bf0241b436d9fb8667cf7
   docVersion: 1.0.0
-  speakeasyVersion: 1.20.1
-  generationVersion: 2.18.1
+  speakeasyVersion: 1.26.2
+  generationVersion: 2.23.2
 generation:
   telemetryEnabled: false
   sdkClassName: bride
-  sdkFlattening: true
   singleTagPerOp: false
 go:
-  version: ""
+  version: 0.1.0
   packageName: github.com/speakeasy-sdks/bridge-go
