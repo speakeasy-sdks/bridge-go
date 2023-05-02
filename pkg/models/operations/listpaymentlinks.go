@@ -25,11 +25,11 @@ func (e ListPaymentLinksStatusEnum) ToPointer() *ListPaymentLinksStatusEnum {
 }
 
 func (e *ListPaymentLinksStatusEnum) UnmarshalJSON(data []byte) error {
-	var s string
-	if err := json.Unmarshal(data, &s); err != nil {
+	var v string
+	if err := json.Unmarshal(data, &v); err != nil {
 		return err
 	}
-	switch s {
+	switch v {
 	case "VALID":
 		fallthrough
 	case "COMPLETED":
@@ -37,10 +37,10 @@ func (e *ListPaymentLinksStatusEnum) UnmarshalJSON(data []byte) error {
 	case "EXPIRED":
 		fallthrough
 	case "REVOKED":
-		*e = ListPaymentLinksStatusEnum(s)
+		*e = ListPaymentLinksStatusEnum(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ListPaymentLinksStatusEnum: %s", s)
+		return fmt.Errorf("invalid value for ListPaymentLinksStatusEnum: %v", v)
 	}
 }
 

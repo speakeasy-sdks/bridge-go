@@ -22,11 +22,11 @@ func (e PaymentLinkRequestCountryEnum) ToPointer() *PaymentLinkRequestCountryEnu
 }
 
 func (e *PaymentLinkRequestCountryEnum) UnmarshalJSON(data []byte) error {
-	var s string
-	if err := json.Unmarshal(data, &s); err != nil {
+	var v string
+	if err := json.Unmarshal(data, &v); err != nil {
 		return err
 	}
-	switch s {
+	switch v {
 	case "fr":
 		fallthrough
 	case "es":
@@ -34,10 +34,10 @@ func (e *PaymentLinkRequestCountryEnum) UnmarshalJSON(data []byte) error {
 	case "de":
 		fallthrough
 	case "gb":
-		*e = PaymentLinkRequestCountryEnum(s)
+		*e = PaymentLinkRequestCountryEnum(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for PaymentLinkRequestCountryEnum: %s", s)
+		return fmt.Errorf("invalid value for PaymentLinkRequestCountryEnum: %v", v)
 	}
 }
 

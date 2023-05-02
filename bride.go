@@ -91,7 +91,7 @@ func New(opts ...SDKOption) *Bride {
 	sdk := &Bride{
 		_language:   "go",
 		_sdkVersion: "0.1.0",
-		_genVersion: "2.23.2",
+		_genVersion: "2.24.0",
 	}
 	for _, opt := range opts {
 		opt(sdk)

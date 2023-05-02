@@ -35,8 +35,8 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := shared.PaymentLinkRequest{
+    ctx := context.Background()
+    res, err := s.PaymentLinks.Create(ctx, shared.PaymentLinkRequest{
         BankID: bride.Int64(602763),
         CallbackURL: bride.String("nulla"),
         ClientReference: bride.String("ABCDE_FG-HI_12345"),
@@ -101,9 +101,7 @@ func main() {
             FirstName: "Thomas",
             LastName: "Pichet",
         },
-    }
-
-    res, err := s.PaymentLinks.Create(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -137,12 +135,10 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := operations.GetPaymentLinkRequest{
+    ctx := context.Background()
+    res, err := s.PaymentLinks.Get(ctx, operations.GetPaymentLinkRequest{
         PaymentLinkID: "vel",
-    }
-
-    res, err := s.PaymentLinks.Get(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -177,16 +173,14 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := operations.ListPaymentLinksRequest{
+    ctx := context.Background()
+    res, err := s.PaymentLinks.List(ctx, operations.ListPaymentLinksRequest{
         After: bride.String("error"),
         Limit: bride.Int64(645894),
         Since: types.MustTimeFromString("2022-07-25T06:44:09.184Z"),
         Status: operations.ListPaymentLinksStatusEnumCompleted.ToPointer(),
         Until: types.MustTimeFromString("2022-10-30T21:34:57.850Z"),
-    }
-
-    res, err := s.PaymentLinks.List(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -220,12 +214,10 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := operations.RevokePaymentLinkRequest{
+    ctx := context.Background()
+    res, err := s.PaymentLinks.Revoke(ctx, operations.RevokePaymentLinkRequest{
         PaymentLinkID: "delectus",
-    }
-
-    res, err := s.PaymentLinks.Revoke(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }

@@ -17,8 +17,8 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := shared.PaymentLinkRequest{
+    ctx := context.Background()
+    res, err := s.PaymentLinks.Create(ctx, shared.PaymentLinkRequest{
         BankID: bride.Int64(548814),
         CallbackURL: bride.String("provident"),
         ClientReference: bride.String("ABCDE_FG-HI_12345"),
@@ -83,9 +83,7 @@ func main() {
             FirstName: "Thomas",
             LastName: "Pichet",
         },
-    }
-
-    res, err := s.PaymentLinks.Create(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }
