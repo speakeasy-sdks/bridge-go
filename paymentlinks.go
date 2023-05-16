@@ -34,7 +34,6 @@ func newPaymentLinks(defaultClient, securityClient HTTPClient, serverURL, langua
 }
 
 // Create - Create a payment link
-
 func (s *paymentLinks) Create(ctx context.Context, request shared.PaymentLinkRequest) (*operations.CreatePaymentLinkResponse, error) {
 	baseURL := s.serverURL
 	url := strings.TrimSuffix(baseURL, "/") + "/payment-links"
@@ -100,7 +99,6 @@ func (s *paymentLinks) Create(ctx context.Context, request shared.PaymentLinkReq
 
 // Get - Retrieve payment link information by ID
 // Returns the details of a payment link specified by its ID
-
 func (s *paymentLinks) Get(ctx context.Context, request operations.GetPaymentLinkRequest) (*operations.GetPaymentLinkResponse, error) {
 	baseURL := s.serverURL
 	url, err := utils.GenerateURL(ctx, baseURL, "/pament-links/{PaymentLinkID}", request, nil)
@@ -158,7 +156,6 @@ func (s *paymentLinks) Get(ctx context.Context, request operations.GetPaymentLin
 }
 
 // List - Retrieve a list of payment links
-
 func (s *paymentLinks) List(ctx context.Context, request operations.ListPaymentLinksRequest) (*operations.ListPaymentLinksResponse, error) {
 	baseURL := s.serverURL
 	url := strings.TrimSuffix(baseURL, "/") + "/payment-links"
@@ -218,7 +215,6 @@ func (s *paymentLinks) List(ctx context.Context, request operations.ListPaymentL
 
 // Revoke - Revoke a payment link
 // Revokes the payment link specified by its ID
-
 func (s *paymentLinks) Revoke(ctx context.Context, request operations.RevokePaymentLinkRequest) (*operations.RevokePaymentLinkResponse, error) {
 	baseURL := s.serverURL
 	url, err := utils.GenerateURL(ctx, baseURL, "/payment-links/{PaymentLinkID}/revoke", request, nil)
