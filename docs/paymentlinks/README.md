@@ -40,7 +40,7 @@ func main() {
         BankID: bride.Int64(602763),
         CallbackURL: bride.String("nulla"),
         ClientReference: bride.String("ABCDE_FG-HI_12345"),
-        Country: shared.PaymentLinkRequestCountryEnumDe.ToPointer(),
+        Country: shared.PaymentLinkRequestCountryDe.ToPointer(),
         ExpiredDate: types.MustTimeFromString("2021-07-24T22:00:00.000Z"),
         Transactions: []shared.Transaction{
             shared.Transaction{
@@ -178,7 +178,7 @@ func main() {
         After: bride.String("error"),
         Limit: bride.Int64(645894),
         Since: types.MustTimeFromString("2022-07-25T06:44:09.184Z"),
-        Status: operations.ListPaymentLinksStatusEnumCompleted.ToPointer(),
+        Status: operations.ListPaymentLinksStatusCompleted.ToPointer(),
         Until: types.MustTimeFromString("2022-10-30T21:34:57.850Z"),
     })
     if err != nil {

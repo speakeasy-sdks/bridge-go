@@ -2,13 +2,13 @@ configVersion: 1.0.0
 management:
   docChecksum: 4e930a7a749bf0241b436d9fb8667cf7
   docVersion: 1.0.0
-  speakeasyVersion: 1.32.0
-  generationVersion: 2.28.0
+  speakeasyVersion: 1.35.0
+  generationVersion: 2.31.0
 generation:
   sdkClassName: bride
   singleTagPerOp: false
   telemetryEnabled: false
 go:
-  version: 0.2.0
+  version: 0.3.0
   maxMethodParams: 0
   packageName: github.com/speakeasy-sdks/bridge-go

@@ -22,7 +22,7 @@ func main() {
         BankID: bride.Int64(548814),
         CallbackURL: bride.String("provident"),
         ClientReference: bride.String("ABCDE_FG-HI_12345"),
-        Country: shared.PaymentLinkRequestCountryEnumDe.ToPointer(),
+        Country: shared.PaymentLinkRequestCountryDe.ToPointer(),
         ExpiredDate: types.MustTimeFromString("2021-07-24T22:00:00.000Z"),
         Transactions: []shared.Transaction{
             shared.Transaction{

@@ -10,21 +10,21 @@ import (
 	"time"
 )
 
-// ListPaymentLinksStatusEnum - Filter payment links by status
-type ListPaymentLinksStatusEnum string
+// ListPaymentLinksStatus - Filter payment links by status
+type ListPaymentLinksStatus string
 
 const (
-	ListPaymentLinksStatusEnumValid     ListPaymentLinksStatusEnum = "VALID"
-	ListPaymentLinksStatusEnumCompleted ListPaymentLinksStatusEnum = "COMPLETED"
-	ListPaymentLinksStatusEnumExpired   ListPaymentLinksStatusEnum = "EXPIRED"
-	ListPaymentLinksStatusEnumRevoked   ListPaymentLinksStatusEnum = "REVOKED"
+	ListPaymentLinksStatusValid     ListPaymentLinksStatus = "VALID"
+	ListPaymentLinksStatusCompleted ListPaymentLinksStatus = "COMPLETED"
+	ListPaymentLinksStatusExpired   ListPaymentLinksStatus = "EXPIRED"
+	ListPaymentLinksStatusRevoked   ListPaymentLinksStatus = "REVOKED"
 )
 
-func (e ListPaymentLinksStatusEnum) ToPointer() *ListPaymentLinksStatusEnum {
+func (e ListPaymentLinksStatus) ToPointer() *ListPaymentLinksStatus {
 	return &e
 }
 
-func (e *ListPaymentLinksStatusEnum) UnmarshalJSON(data []byte) error {
+func (e *ListPaymentLinksStatus) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -37,10 +37,10 @@ func (e *ListPaymentLinksStatusEnum) UnmarshalJSON(data []byte) error {
 	case "EXPIRED":
 		fallthrough
 	case "REVOKED":
-		*e = ListPaymentLinksStatusEnum(v)
+		*e = ListPaymentLinksStatus(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ListPaymentLinksStatusEnum: %v", v)
+		return fmt.Errorf("invalid value for ListPaymentLinksStatus: %v", v)
 	}
 }
 
@@ -52,7 +52,7 @@ type ListPaymentLinksRequest struct {
 	// Limit to payment links created after the specified date
 	Since *time.Time `queryParam:"style=form,explode=true,name=since"`
 	// Filter payment links by status
-	Status *ListPaymentLinksStatusEnum `queryParam:"style=form,explode=true,name=status"`
+	Status *ListPaymentLinksStatus `queryParam:"style=form,explode=true,name=status"`
 	// Limit to transactions created before the specified date
 	Until *time.Time `queryParam:"style=form,explode=true,name=until"`
 }

@@ -90,8 +90,8 @@ func WithSecurity(security shared.Security) SDKOption {
 func New(opts ...SDKOption) *Bride {
 	sdk := &Bride{
 		_language:   "go",
-		_sdkVersion: "0.2.0",
-		_genVersion: "2.28.0",
+		_sdkVersion: "0.3.0",
+		_genVersion: "2.31.0",
 	}
 	for _, opt := range opts {
 		opt(sdk)

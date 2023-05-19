@@ -8,20 +8,20 @@ import (
 	"time"
 )
 
-type PaymentLinkRequestCountryEnum string
+type PaymentLinkRequestCountry string
 
 const (
-	PaymentLinkRequestCountryEnumFr PaymentLinkRequestCountryEnum = "fr"
-	PaymentLinkRequestCountryEnumEs PaymentLinkRequestCountryEnum = "es"
-	PaymentLinkRequestCountryEnumDe PaymentLinkRequestCountryEnum = "de"
-	PaymentLinkRequestCountryEnumGb PaymentLinkRequestCountryEnum = "gb"
+	PaymentLinkRequestCountryFr PaymentLinkRequestCountry = "fr"
+	PaymentLinkRequestCountryEs PaymentLinkRequestCountry = "es"
+	PaymentLinkRequestCountryDe PaymentLinkRequestCountry = "de"
+	PaymentLinkRequestCountryGb PaymentLinkRequestCountry = "gb"
 )
 
-func (e PaymentLinkRequestCountryEnum) ToPointer() *PaymentLinkRequestCountryEnum {
+func (e PaymentLinkRequestCountry) ToPointer() *PaymentLinkRequestCountry {
 	return &e
 }
 
-func (e *PaymentLinkRequestCountryEnum) UnmarshalJSON(data []byte) error {
+func (e *PaymentLinkRequestCountry) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -34,19 +34,19 @@ func (e *PaymentLinkRequestCountryEnum) UnmarshalJSON(data []byte) error {
 	case "de":
 		fallthrough
 	case "gb":
-		*e = PaymentLinkRequestCountryEnum(v)
+		*e = PaymentLinkRequestCountry(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for PaymentLinkRequestCountryEnum: %v", v)
+		return fmt.Errorf("invalid value for PaymentLinkRequestCountry: %v", v)
 	}
 }
 
 type PaymentLinkRequest struct {
-	BankID          *int64                         `json:"bank_id,omitempty"`
-	CallbackURL     *string                        `json:"callback_url,omitempty"`
-	ClientReference *string                        `json:"client_reference,omitempty"`
-	Country         *PaymentLinkRequestCountryEnum `json:"country,omitempty"`
-	ExpiredDate     *time.Time                     `json:"expired_date,omitempty"`
-	Transactions    []Transaction                  `json:"transactions"`
-	User            User                           `json:"user"`
+	BankID          *int64                     `json:"bank_id,omitempty"`
+	CallbackURL     *string                    `json:"callback_url,omitempty"`
+	ClientReference *string                    `json:"client_reference,omitempty"`
+	Country         *PaymentLinkRequestCountry `json:"country,omitempty"`
+	ExpiredDate     *time.Time                 `json:"expired_date,omitempty"`
+	Transactions    []Transaction              `json:"transactions"`
+	User            User                       `json:"user"`
 }
