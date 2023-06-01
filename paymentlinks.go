@@ -3,11 +3,13 @@
 package bride
 
 import (
+	"bytes"
 	"context"
 	"fmt"
 	"github.com/speakeasy-sdks/bridge-go/pkg/models/operations"
 	"github.com/speakeasy-sdks/bridge-go/pkg/models/shared"
 	"github.com/speakeasy-sdks/bridge-go/pkg/utils"
+	"io"
 	"net/http"
 	"strings"
 )
@@ -64,7 +66,13 @@ func (s *paymentLinks) Create(ctx context.Context, request shared.PaymentLinkReq
 	if httpRes == nil {
 		return nil, fmt.Errorf("error sending request: no response")
 	}
-	defer httpRes.Body.Close()
+
+	rawBody, err := io.ReadAll(httpRes.Body)
+	if err != nil {
+		return nil, fmt.Errorf("error reading response body: %w", err)
+	}
+	httpRes.Body.Close()
+	httpRes.Body = io.NopCloser(bytes.NewBuffer(rawBody))
 
 	contentType := httpRes.Header.Get("Content-Type")
 
@@ -78,7 +86,7 @@ func (s *paymentLinks) Create(ctx context.Context, request shared.PaymentLinkReq
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):
 			var out *operations.CreatePaymentLink200ApplicationJSON
-			if err := utils.UnmarshalJsonFromResponseBody(httpRes.Body, &out); err != nil {
+			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out); err != nil {
 				return nil, err
 			}
 
@@ -88,7 +96,7 @@ func (s *paymentLinks) Create(ctx context.Context, request shared.PaymentLinkReq
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):
 			var out *shared.InvalidBodyContent
-			if err := utils.UnmarshalJsonFromResponseBody(httpRes.Body, &out); err != nil {
+			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out); err != nil {
 				return nil, err
 			}
 
@@ -124,7 +132,13 @@ func (s *paymentLinks) Get(ctx context.Context, request operations.GetPaymentLin
 	if httpRes == nil {
 		return nil, fmt.Errorf("error sending request: no response")
 	}
-	defer httpRes.Body.Close()
+
+	rawBody, err := io.ReadAll(httpRes.Body)
+	if err != nil {
+		return nil, fmt.Errorf("error reading response body: %w", err)
+	}
+	httpRes.Body.Close()
+	httpRes.Body = io.NopCloser(bytes.NewBuffer(rawBody))
 
 	contentType := httpRes.Header.Get("Content-Type")
 
@@ -138,7 +152,7 @@ func (s *paymentLinks) Get(ctx context.Context, request operations.GetPaymentLin
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):
 			var out *shared.PaymentLinkResponse
-			if err := utils.UnmarshalJsonFromResponseBody(httpRes.Body, &out); err != nil {
+			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out); err != nil {
 				return nil, err
 			}
 
@@ -148,7 +162,7 @@ func (s *paymentLinks) Get(ctx context.Context, request operations.GetPaymentLin
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):
 			var out *shared.InvalidBodyContent
-			if err := utils.UnmarshalJsonFromResponseBody(httpRes.Body, &out); err != nil {
+			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out); err != nil {
 				return nil, err
 			}
 
@@ -184,7 +198,13 @@ func (s *paymentLinks) List(ctx context.Context, request operations.ListPaymentL
 	if httpRes == nil {
 		return nil, fmt.Errorf("error sending request: no response")
 	}
-	defer httpRes.Body.Close()
+
+	rawBody, err := io.ReadAll(httpRes.Body)
+	if err != nil {
+		return nil, fmt.Errorf("error reading response body: %w", err)
+	}
+	httpRes.Body.Close()
+	httpRes.Body = io.NopCloser(bytes.NewBuffer(rawBody))
 
 	contentType := httpRes.Header.Get("Content-Type")
 
@@ -198,7 +218,7 @@ func (s *paymentLinks) List(ctx context.Context, request operations.ListPaymentL
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):
 			var out *shared.PaymentLinksResponse
-			if err := utils.UnmarshalJsonFromResponseBody(httpRes.Body, &out); err != nil {
+			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out); err != nil {
 				return nil, err
 			}
 
@@ -208,7 +228,7 @@ func (s *paymentLinks) List(ctx context.Context, request operations.ListPaymentL
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):
 			var out *shared.InvalidBodyContent
-			if err := utils.UnmarshalJsonFromResponseBody(httpRes.Body, &out); err != nil {
+			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out); err != nil {
 				return nil, err
 			}
 
@@ -244,7 +264,13 @@ func (s *paymentLinks) Revoke(ctx context.Context, request operations.RevokePaym
 	if httpRes == nil {
 		return nil, fmt.Errorf("error sending request: no response")
 	}
-	defer httpRes.Body.Close()
+
+	rawBody, err := io.ReadAll(httpRes.Body)
+	if err != nil {
+		return nil, fmt.Errorf("error reading response body: %w", err)
+	}
+	httpRes.Body.Close()
+	httpRes.Body = io.NopCloser(bytes.NewBuffer(rawBody))
 
 	contentType := httpRes.Header.Get("Content-Type")
 
@@ -259,7 +285,7 @@ func (s *paymentLinks) Revoke(ctx context.Context, request operations.RevokePaym
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):
 			var out *shared.InvalidBodyContent
-			if err := utils.UnmarshalJsonFromResponseBody(httpRes.Body, &out); err != nil {
+			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out); err != nil {
 				return nil, err
 			}
 
