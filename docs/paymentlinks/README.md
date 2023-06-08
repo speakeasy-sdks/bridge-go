@@ -31,7 +31,7 @@ import(
 func main() {
     s := bride.New(
         bride.WithSecurity(shared.Security{
-            ClientID: bride.String("YOUR_API_KEY_HERE"),
+            ClientID: bride.String(""),
         }),
     )
 
@@ -131,7 +131,7 @@ import(
 func main() {
     s := bride.New(
         bride.WithSecurity(shared.Security{
-            ClientID: bride.String("YOUR_API_KEY_HERE"),
+            ClientID: bride.String(""),
         }),
     )
 
@@ -169,7 +169,7 @@ import(
 func main() {
     s := bride.New(
         bride.WithSecurity(shared.Security{
-            ClientID: bride.String("YOUR_API_KEY_HERE"),
+            ClientID: bride.String(""),
         }),
     )
 
@@ -210,7 +210,7 @@ import(
 func main() {
     s := bride.New(
         bride.WithSecurity(shared.Security{
-            ClientID: bride.String("YOUR_API_KEY_HERE"),
+            ClientID: bride.String(""),
         }),
     )
 
