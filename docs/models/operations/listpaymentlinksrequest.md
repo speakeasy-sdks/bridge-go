@@ -1,0 +1,12 @@
+# ListPaymentLinksRequest
+
+
+## Fields
+
+| Field                                                                        | Type                                                                         | Required                                                                     | Description                                                                  |
+| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| `After`                                                                      | **string*                                                                    | :heavy_minus_sign:                                                           | Cursor pointing to the start of the desired set                              |
+| `Limit`                                                                      | **int64*                                                                     | :heavy_minus_sign:                                                           | Number of records to return                                                  |
+| `Since`                                                                      | [*time.Time](https://pkg.go.dev/time#Time)                                   | :heavy_minus_sign:                                                           | Limit to payment links created after the specified date                      |
+| `Status`                                                                     | [*ListPaymentLinksStatus](../../models/operations/listpaymentlinksstatus.md) | :heavy_minus_sign:                                                           | Filter payment links by status                                               |
+| `Until`                                                                      | [*time.Time](https://pkg.go.dev/time#Time)                                   | :heavy_minus_sign:                                                           | Limit to transactions created before the specified date                      |

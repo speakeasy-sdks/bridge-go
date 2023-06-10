@@ -122,12 +122,12 @@ func main() {
 ## Available Resources and Operations
 
 
-### [PaymentLinks](docs/paymentlinks/README.md)
+### [PaymentLinks](docs/sdks/paymentlinks/README.md)
 
-* [Create](docs/paymentlinks/README.md#create) - Create a payment link
-* [Get](docs/paymentlinks/README.md#get) - Retrieve payment link information by ID
-* [List](docs/paymentlinks/README.md#list) - Retrieve a list of payment links
-* [Revoke](docs/paymentlinks/README.md#revoke) - Revoke a payment link
+* [Create](docs/sdks/paymentlinks/README.md#create) - Create a payment link
+* [Get](docs/sdks/paymentlinks/README.md#get) - Retrieve payment link information by ID
+* [List](docs/sdks/paymentlinks/README.md#list) - Retrieve a list of payment links
+* [Revoke](docs/sdks/paymentlinks/README.md#revoke) - Revoke a payment link
 <!-- End SDK Available Operations -->
 
 ### Maturity
